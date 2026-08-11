@@ -30,7 +30,8 @@ const Register = () => {
         password: "",
       });
     } catch (error) {
-      return res.status(401).json({ message: "Failed to Register user " });
+      console.log(error.response?.data || error.message);
+      alert(error.response?.data?.message || "Failed to register");
     }
   };
 

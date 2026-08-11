@@ -23,8 +23,6 @@ const Login = () => {
     try {
       const res = await api.post("/auth/login", fromData);
 
-      
-
       navigate("/dashboard", { replace: true });
 
       setFromData({
@@ -32,7 +30,7 @@ const Login = () => {
         password: "",
       });
     } catch (err) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      console.log(err.response?.data || err.message);
     }
   };
   return (
